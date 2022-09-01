@@ -18,17 +18,14 @@ public class BidderServiceImpl implements BidderService {
 
 	@Autowired
 	private BidderRepository bidderRepo;
-	@Autowired
-	private EmailService emailService;
+	
 	
 	@Override
 	public void register(Bidder bidder) {
 		
 		if(!bidderRepo.isBidderPresent(bidder.getEmail())) {
-		int id=bidderRepo.addOrUpdateBidder(bidder);
-		String text="Successfully registered. Your id is "+id;
-		String subject="Registration Confirmation";
-		emailService.sendEmailForNewRegistration(bidder.getEmail(), text, subject);
+		bidderRepo.addOrUpdateBidder(bidder);
+		
 		}
 		else
 		throw new BidderServiceException("Customer already registered!");

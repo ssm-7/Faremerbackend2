@@ -28,13 +28,13 @@ class FarmerSchemeApplicationTests {
 	// ============================Bidder Testing==========================
 	@Test
 	void isBidderPresent() {
-		boolean checkUser = bidderDetailRepo.isBidderPresent("shrutijain@gmail.com");
+		boolean checkUser = bidderDetailRepo.isBidderPresent("rem@gmail.com");
 		System.out.println(checkUser);
 	}
 
 	@Test
 	void findBidderByEmailAndPass() {
-		int bidderInfo = bidderDetailRepo.findByEmailAndPassword("shrutijain@gmail.com", "shruti123");
+		int bidderInfo = bidderDetailRepo.findByEmailAndPassword("rem@gmail.com", "Rem_7");
 		System.out.println(bidderInfo);
 	}
 
@@ -57,13 +57,13 @@ class FarmerSchemeApplicationTests {
 	// ==========================Farmer Testing===============================
 	@Test
 	void isFarmerPresent() {
-		boolean checkUser = farmerDetailRepo.isFarmerPresent("raj@gmail.com");
+		boolean checkUser = farmerDetailRepo.isFarmerPresent("soham@gmail.com");
 		System.out.println(checkUser);
 	}
 
 	@Test
 	void findFarmerByEmailAndPass() {
-		int FarmerInfo = farmerDetailRepo.findByEmailAndPassword("raj@gmail.com", "raj123456");
+		int FarmerInfo = farmerDetailRepo.findByEmailAndPassword("soham@gmail.com", "Soham_7");
 		System.out.println(FarmerInfo);
 	}
 

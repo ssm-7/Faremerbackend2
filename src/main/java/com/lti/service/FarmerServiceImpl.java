@@ -22,15 +22,12 @@ import com.lti.repository.FarmerRepository;
 public class FarmerServiceImpl implements FarmerService {
 	@Autowired
     private FarmerRepository farmerRepo;
-    @Autowired
-    private EmailService emailService;
+   
     @Override
     public void register(Farmer farmer) {
     	if(!farmerRepo.isFarmerPresent(farmer.getEmail())) {
-    		int id=farmerRepo.addOrUpdateFarmer(farmer);
-    		String text="Successfully registered. Your id is "+id;
-    		String subject="Registration Confirmation";
-    		emailService.sendEmailForNewRegistration(farmer.getEmail(), text, subject);
+    		farmerRepo.addOrUpdateFarmer(farmer);
+    		
     		}
     		else
     		throw new FarmerServiceException("Farmer already registered!");
